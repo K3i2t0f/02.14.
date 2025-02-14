@@ -1,4 +1,6 @@
-﻿namespace _02._14_
+﻿using System.Runtime.InteropServices;
+
+namespace _02._14_
 {
     internal class Program
     {
@@ -9,6 +11,7 @@
             Beolvasas("karakterek.txt", karakterek);
             LegmagasabbEletero(karakterek);
             KarakterAtlagSzint(karakterek);
+            RendezesErossegiSzint(karakterek);
         }
 
         static void Beolvasas(string filnenev, List<Karakter> karakterek)
@@ -50,6 +53,16 @@
                 osszeg += karakterek[i].Szint;
             }
             Console.WriteLine($" 3.Feladat: {osszeg / karakterek.Count}");
+        }
+
+        static void RendezesErossegiSzint(List<Karakter> karakterek)
+        {
+            karakterek.Sort((x, y) => x.Ero.CompareTo(y.Ero));
+            Console.WriteLine(" 4.Feladat: Rendezés erősségi szint szerint");
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                Console.WriteLine($" {karakterek[i]}");
+            }
         }
     }
 }
