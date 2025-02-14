@@ -9,9 +9,21 @@ namespace _02._14_
             List<Karakter> karakterek = [];
 
             Beolvasas("karakterek.txt", karakterek);
+
+            Console.WriteLine("\n2.feladat");
             LegmagasabbEletero(karakterek);
+
+            Console.WriteLine("\n3.feladat");
             KarakterAtlagSzint(karakterek);
+
+            Console.WriteLine("\n4.feladat");
             RendezesErossegiSzint(karakterek);
+
+            Console.WriteLine("\n5.feladat");
+            ErosebbE(30, karakterek);
+            
+
+
         }
 
         static void Beolvasas(string filnenev, List<Karakter> karakterek)
@@ -42,7 +54,7 @@ namespace _02._14_
                     index = i;
                 }
             }
-            Console.WriteLine($" 2.Feladat: {karakterek[index]}");
+            Console.WriteLine(karakterek[index]);
         }
 
         static void KarakterAtlagSzint(List<Karakter> karakterek)
@@ -52,16 +64,26 @@ namespace _02._14_
             {
                 osszeg += karakterek[i].Szint;
             }
-            Console.WriteLine($" 3.Feladat: {osszeg / karakterek.Count}");
+            Console.WriteLine(osszeg / karakterek.Count);
         }
 
         static void RendezesErossegiSzint(List<Karakter> karakterek)
         {
             karakterek.Sort((x, y) => x.Ero.CompareTo(y.Ero));
-            Console.WriteLine(" 4.Feladat: Rendezés erősségi szint szerint");
             for (int i = 0; i < karakterek.Count; i++)
             {
-                Console.WriteLine($" {karakterek[i]}");
+                Console.WriteLine(karakterek[i]);
+            }
+        }
+
+        static void ErosebbE(int ero, List<Karakter> karakterek)
+        {
+            foreach (var karakter in karakterek)
+            {
+                if (karakter.Ero > ero)
+                {
+                    Console.WriteLine($" {karakter}");
+                }
             }
         }
     }
