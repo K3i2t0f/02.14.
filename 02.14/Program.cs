@@ -8,6 +8,7 @@
 
             Beolvasas("karakterek.txt", karakterek);
             LegmagasabbEletero(karakterek);
+            KarakterAtlagSzint(karakterek);
         }
 
         static void Beolvasas(string filnenev, List<Karakter> karakterek)
@@ -39,6 +40,16 @@
                 }
             }
             Console.WriteLine($" 2.Feladat: {karakterek[index]}");
+        }
+
+        static void KarakterAtlagSzint(List<Karakter> karakterek)
+        {
+            int osszeg = 0;
+            for (int i = 0; i < karakterek.Count; i++)
+            {
+                osszeg += karakterek[i].Szint;
+            }
+            Console.WriteLine($" 3.Feladat: {osszeg / karakterek.Count}");
         }
     }
 }
